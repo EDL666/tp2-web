@@ -7,9 +7,17 @@ class NavbarController {
     'state': 'main'
   },
   {
-    'title': 'Projets',
-    'state': 'projet'
+    'title': 'Contact',
+    'state': 'contact'
   },
+  {
+    'title': 'Créer mon compte',
+    'state': 'inscription'
+  },
+  {
+    'title': 'Rechercher',
+    'state': 'rechercher'
+  }
   ];
 
   isCollapsed = true;
