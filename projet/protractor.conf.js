@@ -22,6 +22,7 @@ var config = {
     'e2e/**/*.spec.js'
   ],
 
+  seleniumAddress: 'http://localhost:4444/wd/hub',
   // Patterns to exclude.
   exclude: [],
 
