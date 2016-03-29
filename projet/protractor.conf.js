@@ -22,14 +22,7 @@ var config = {
     'e2e/**/*.spec.js'
   ],
 
-<<<<<<< HEAD
   seleniumAddress: 'http://localhost:4444/wd/hub',
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
-=======
->>>>>>> parent of 5380c0e... allo
   // Patterns to exclude.
   exclude: [],
 
