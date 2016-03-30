@@ -24,7 +24,7 @@ describe('Test protractor pour l inscription', function() {
     element(by.className('noUserName')).isDisplayed().then(function(visible) {
       expect(visible).toBeFalsy();
     });
-    element(by.model('user.name')).click();
+    element(by.model('user.lastname')).click();
     element(by.model('user.email')).click();
     element(by.className('noUserName')).isDisplayed().then(function(visible) {
       expect(visible).toBeTruthy();
