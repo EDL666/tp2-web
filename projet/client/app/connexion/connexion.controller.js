@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('fs3App');
 
-app.controller('ConnexionCtrl', ['$scope', '$http','$location', function($scope,$http,$location) {
+app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope', function($scope,$http,$location,$rootScope) {
 	$scope.connexion = function(user){
 		var apiUrl = 'https://crispesh.herokuapp.com/api';
     $http(
@@ -13,7 +13,7 @@ app.controller('ConnexionCtrl', ['$scope', '$http','$location', function($scope,
     	).then(
 				function successCallback(data)
 	      {
-					$rootscope.broadcast('Is connected',{});
+					$rootScope.$broadcast('User:logedin');
 	        localStorage.setItem('JWT', data.data.token);
 	        console.log("Saving token to localstorage", data.data.token);
 					$location.path('/')

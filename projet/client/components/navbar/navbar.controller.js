@@ -28,7 +28,12 @@ class NavbarController {
   isCollapsed = true;
   //end-non-standard
 
-  constructor() {
+  constructor($scope) {
+    $scope.$on('User:logedin', function(event, args) {
+      console.log(args);
+    });
+
+
     }
 }
 
