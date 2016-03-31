@@ -1,0 +1,8 @@
+<p>Comments
+<ul>
+  <li ng-repeat="comment in comments">
+            {{ comment.body }}
+  </li>
+</ul>
+
+<div ng-show="!!!comments.length">No comments found</div>
