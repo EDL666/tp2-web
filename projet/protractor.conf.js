@@ -23,10 +23,6 @@ var config = {
   ],
 
   seleniumAddress: 'http://localhost:4444/wd/hub',
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
   // Patterns to exclude.
   exclude: [],
 
