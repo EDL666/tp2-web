@@ -2,6 +2,7 @@
 
 angular.module('fs3App', [
   'fs3App.constants',
+  'toastr',
   'ngCookies',
   'ngResource',
   'ngSanitize',

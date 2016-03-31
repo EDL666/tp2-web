@@ -12,14 +12,13 @@ describe('MainController', function() {
     console.log($httpBackend);
     httpBackend = $httpBackend;
     scope = $rootScope;
-	httpBackend.when('GET', 'https://www.omdbapi.com/?y=2016&s=batman&type=movie').respond(200, response);
+	  httpBackend.when('GET', 'https://www.omdbapi.com/?y=2016&s=batman&type=movie').respond(200, response);
     httpBackend.expect('GET', 'https://www.omdbapi.com/?y=2016&s=batman&type=movie');
     myController =  $controller('MainController', {'$scope' : scope,'$http' : $http});
   }));
 
   it('should send msg to server', function(){
     httpBackend.flush();
-	console.log(httpBackend);
     expect(scope.movies).toEqual(response.Search);
   });
 });

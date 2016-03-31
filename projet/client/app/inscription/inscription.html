@@ -22,6 +22,7 @@
       <div ng-show="form.$submitted || form.uEmail.$touched">
         <span ng-show="form.uEmail.$error.required" class="text-danger">donnez nous votre courriel</span>
         <span ng-show="form.uEmail.$error.email" class="emailInvalid text-danger">Votre courriel n'est pas valide.</span>
+        <span ng-show="form.uEmail.$error.taken">This username is already taken!</span>
       </div>
     </div>
 

@@ -17,7 +17,12 @@ class NavbarController {
   {
     'title': 'Rechercher',
     'state': 'rechercher'
+  },
+  {
+    'title': 'Connexion',
+    'state': 'connexion'
   }
+
   ];
 
   isCollapsed = true;
