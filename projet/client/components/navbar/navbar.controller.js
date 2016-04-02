@@ -1,5 +1,7 @@
 'use strict';
 
+var menu;
+
 class NavbarController {
   //start-non-standard
   menu = [{
@@ -7,34 +9,33 @@ class NavbarController {
     'state': 'main'
   },
   {
-    'title': 'Contact',
-    'state': 'contact'
-  },
-  {
     'title': 'Créer mon compte',
     'state': 'inscription'
-  },
-  {
-    'title': 'Rechercher',
-    'state': 'rechercher'
   },
   {
     'title': 'Connexion',
     'state': 'connexion'
   }
-
   ];
 
   isCollapsed = true;
   //end-non-standard
 
-  constructor($scope) {
-    $scope.$on('User:logedin', function(event, args) {
-      console.log(args);
-    });
-
-
+constructor($scope) {
+  $scope.$on('User:logedin', function(event, args) {
+      console.log(event);
+      menu = [{
+        {
+          'title': 'Contact',
+          'state': 'contact'
+        },
+        {
+          'title': 'Rechercher',
+          'state': 'rechercher'
+        }
+      }];
     }
+  }
 }
 
 angular.module('fs3App')

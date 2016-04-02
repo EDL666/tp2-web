@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('fs3App');
 
-app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope', function($scope,$http,$location,$rootScope) {
+app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope','toastr', function($scope,$http,$location,$rootScope,toastr) {
 	$scope.connexion = function(user){
 		var apiUrl = 'https://crispesh.herokuapp.com/api';
     $http(
