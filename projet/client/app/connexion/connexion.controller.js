@@ -16,7 +16,7 @@ app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope','toa
 					console.log(data);
 					$rootScope.$broadcast('User:logedIn');
 	        localStorage.setItem('JWT', data.data.token);
-					localStorage.setItem('Username', data.config.data.username);
+					localStorage.setItem('Username', user.username);
 	        console.log("Saving token to localstorage", data.data.token);
 					$location.path('/');
 	      },
