@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('fs3App')
-.controller('MainController', ['$scope','$http','jwtHelper', function($scope,$http,jwtHelper){
+.controller('MainController', ['$scope','$http','jwtHelper','$rootScope','$location', function($scope,$http,jwtHelper,$rootScope,$location){
   var jwt = localStorage.getItem('JWT');
   $scope.movies = [];
   $scope.omdbid;
@@ -28,7 +28,6 @@ angular.module('fs3App')
     localStorage.clear();
 		$rootScope.$broadcast('User:logedOut');
 		$location.path('/');
-    window.location.reload();
   }
   else{
     console.log("Token not expired", jwtHelper.getTokenExpirationDate(jwt));
