@@ -12,8 +12,10 @@
         <li class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="movie in movies | limitTo:6">
           <a tooltip="{{movie.info}}">{{movie.Title}}</a>
           <img ng-src="{{movie.Poster}}" alt="" height="300" width="300"/>
-          <appx-comment omdbid="movie.imdbID"></appx-comment>
-          <appx-comment-create omdbid="movie.imdbID"></appx-comment-create>
+          <div ng-show="showComment">
+            <appx-comment omdbid="imdbID"></appx-comment>
+            <appx-comment-create omdbid="imdbID"></appx-comment-create>
+          <div >
         </li>
       </ul>
     </div>

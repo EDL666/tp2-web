@@ -13,15 +13,17 @@ app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope','toa
     	).then(
 				function successCallback(data)
 	      {
-					$rootScope.$broadcast('User:logedin');
+					console.log(data);
+					$rootScope.$broadcast('User:logedIn');
 	        localStorage.setItem('JWT', data.data.token);
+					localStorage.setItem('Username', data.config.data.username);
 	        console.log("Saving token to localstorage", data.data.token);
-					$location.path('/')
+					$location.path('/');
 	      },
         function errorCallback(error)
     		{
           console.log("Erreur de login", error);
         }
     );
-	}
+	};
 }]);
