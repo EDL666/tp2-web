@@ -20,8 +20,10 @@ angular.module('fs3App')
             }).then(
             function successCallback(response)
             {
-				console.log(response.data);
+				      console.log(response.data);
+              console.log(value);
               scope.comments = response.data;
+              scope.omdbid = value;
             },
             function errorCallback(response)
             {
