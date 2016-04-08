@@ -12,8 +12,8 @@ describe('Test protractor pour l inscription', function() {
       expect(visible).toBeFalsy();
     });
 
-    element(by.model('user.email')).sendKeys('invalidEmail');
-    element(by.model('user.firstName')).click();
+    element(by.model('userEmail')).sendKeys('invalidEmail');
+    element(by.model('userFirstName')).click();
     element(by.className('emailInvalid')).isDisplayed().then(function(visible) {
       expect(visible).toBeTruthy();
     });
@@ -24,18 +24,18 @@ describe('Test protractor pour l inscription', function() {
     element(by.className('noUserName')).isDisplayed().then(function(visible) {
       expect(visible).toBeFalsy();
     });
-    element(by.model('user.lastname')).click();
-    element(by.model('user.email')).click();
+    element(by.model('userLastname')).click();
+    element(by.model('userEmail')).click();
     element(by.className('noUserName')).isDisplayed().then(function(visible) {
       expect(visible).toBeTruthy();
     });
   });
   it('Le formulaire est caché et affiche un message de succès si le formulaire est valide', function() {
-    element(by.model('user.firstName')).sendKeys('John');
-    element(by.model('user.name')).sendKeys('Smith');
-    element(by.model('user.email')).sendKeys('John@gmail.com');
-    element(by.model('user.password')).sendKeys('coucou');
-    element(by.model('user.confirmPassword')).sendKeys('coucou');
+    element(by.model('userFirstName')).sendKeys('John');
+    element(by.model('userLastname')).sendKeys('Smith');
+    element(by.model('userEmail')).sendKeys('John@gmail.com');
+    element(by.model('userPassword')).sendKeys('coucou');
+    element(by.model('confirmPassword')).sendKeys('coucou');
     element(by.id('formSubmit')).click();
     element(by.className('css-form')).isDisplayed().then(function(visible) {
       expect(visible).toBeFalsy();

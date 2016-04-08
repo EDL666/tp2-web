@@ -4,7 +4,7 @@
       <label>Votre courriel:</label>
       <input type="email" class="form-control" ng-model="user.username" name="uEmail" required="" />
       <div ng-show="form.$submitted || form.uEmail.$touched">
-        <span ng-show="form.uEmail.$error.required" class="text-danger">donnez nous votre courriel</span>
+        <span ng-show="form.uEmail.$error.required" class="noUserName text-danger">donnez nous votre courriel</span>
         <span ng-show="form.uEmail.$error.email" class="emailInvalid text-danger">Votre courriel n'est pas valide.</span>
         <span ng-show="form.uEmail.$error.taken">This username is already taken!</span>
       </div>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group">
-      <input type="submit" class="btn btn-success" ng-click="connexion(user)" value="Soumettre" ng-disabled="form.$invalid" id="formSubmit"/>
+      <input type="submit" class="btn btn-success" ng-model="submitButton" ng-click="connexion(user)" value="Soumettre" ng-disabled="form.$invalid" id="formSubmit"/>
     </div>
   </form>
 </div>
