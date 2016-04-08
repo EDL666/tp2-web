@@ -8,20 +8,26 @@ app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope','toa
       {
         method: 'POST',
         url: apiUrl + '/login_check',
-        data: {username: user.username, password: user.password}
+        data: {username: user.username, password:user.password}
       }
     	).then(
 				function successCallback(data)
 	      {
 					console.log(data);
-					$rootScope.$broadcast('User:logedIn');
-	        localStorage.setItem('JWT', data.data.token);
-					localStorage.setItem('Username', user.username);
-	        console.log("Saving token to localstorage", data.data.token);
-					$location.path('/');
+					if(data.data != undefined){
+						$rootScope.$broadcast('User:logedIn');
+		        localStorage.setItem('JWT', data.data.token);
+						localStorage.setItem('Username', user.username);
+		        console.log("Saving token to localstorage", data.data.token);
+						toastr.success(user.username + ' vous êtes connecté', 'Bienvenue');
+						$location.path('/');
+						console.log("Erreur de login", error);
+					}
 	      },
         function errorCallback(error)
     		{
+					$scope.error = error;
+					toastr.error('Vos avez fait des erreurs lors de votre identification', 'Erreur');
           console.log("Erreur de login", error);
         }
     );

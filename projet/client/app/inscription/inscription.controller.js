@@ -6,16 +6,17 @@ app
 
   $scope.showForm = true;
   $scope.showSuccess = false;
-  $scope.update = function(user) {
+  $scope.theUser;
+  $scope.update = function() {
     // SAVE : Crée un nouveau Post
-    var myPostObj = {email: user.email, password: user.password, firstname: user.firstname, lastname: user.lastname};
+    var myPostObj = {email: $scope.userEmail, password: $scope.userPassword, firstname: $scope.userFirstName, lastname: $scope.userLastname};
     Post.save(myPostObj,function(response){
-      console.log(response);
       $scope.showForm = false;
       $scope.showSuccess = true;
     },
     function(error){
-      console.log(error);
+      console.log(error.data);
+      $scope.error = error;
       toastr.error('Cette adresse courriel est déja utilisé', 'Erreur');
     });
   };
