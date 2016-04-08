@@ -4,7 +4,6 @@ angular.module('fs3App')
 .controller('MainController', ['$scope','$http','jwtHelper','$rootScope','$location', function($scope,$http,jwtHelper,$rootScope,$location){
   var jwt = localStorage.getItem('JWT');
   $scope.movies = [];
-  $scope.omdbid;
   $scope.showComment = false;
   $http.get('https://www.omdbapi.com/?y=2016&s=batman&type=movie').then(
     function successCallback(response) {
@@ -13,6 +12,8 @@ angular.module('fs3App')
       console.log(response);
       console.log(response.data);
       $scope.movies = response.data.Search;
+	  console.log(response.data.Search);
+	  $scope.omdbID = response.data.Search.imdbID;
     },
     function errorCallback(response) {
       // Ce bloc sera exécuté lorsqu'une erreur est détectée.
@@ -22,7 +23,7 @@ angular.module('fs3App')
   );
 
   $scope.$on('User:logedIn',function(){
-    $scope.imdbID = 'movie.imdbID';
+    //$scope.imdbID = response.data.Search.imdbID;
   });
   if(jwt === null || jwtHelper.isTokenExpired(jwt)){
     localStorage.clear();

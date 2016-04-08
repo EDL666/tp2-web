@@ -20,6 +20,7 @@ angular.module('fs3App')
             }).then(
             function successCallback(response)
             {
+				console.log(response.data);
               scope.comments = response.data;
             },
             function errorCallback(response)
