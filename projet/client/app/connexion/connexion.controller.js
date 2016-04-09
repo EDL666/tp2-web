@@ -14,14 +14,14 @@ app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope','toa
 				function successCallback(data)
 	      {
 					console.log(data);
-					if(data.data != undefined){
+					if(data.data !== undefined){
 						$rootScope.$broadcast('User:logedIn');
 		        localStorage.setItem('JWT', data.data.token);
 						localStorage.setItem('Username', user.username);
 		        console.log("Saving token to localstorage", data.data.token);
-						toastr.success(user.username + ' vous êtes connecté', 'Bienvenue');
 						$location.path('/');
-						console.log("Erreur de login", error);
+						location.reload();
+						toastr.success(user.username + ' vous êtes connecté', 'Bienvenue');
 					}
 	      },
         function errorCallback(error)
