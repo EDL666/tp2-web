@@ -12,8 +12,6 @@ angular.module('fs3App')
       console.log(response);
       console.log(response.data);
       $scope.movies = response.data.Search;
-	  console.log(response.data.Search);
-	  $scope.omdbID = response.data.Search.imdbID;
     },
     function errorCallback(response) {
       // Ce bloc sera exécuté lorsqu'une erreur est détectée.
@@ -21,10 +19,6 @@ angular.module('fs3App')
       console.log(response);
     }
   );
-
-  $scope.$on('User:logedIn',function(){
-    //$scope.imdbID = response.data.Search.imdbID;
-  });
   if(jwt === null || jwtHelper.isTokenExpired(jwt)){
     localStorage.clear();
 		$rootScope.$broadcast('User:logedOut');
