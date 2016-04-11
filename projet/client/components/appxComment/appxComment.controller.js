@@ -12,5 +12,6 @@ app.controller('AppxCommentCtrl', ['$scope', 'postComment', function($scope,post
 	$scope.createComment = function(omdbid) {
 		var aPost = {body: $scope.commentText, movie_id: omdbid, status: 0};
 		postComment.save(aPost);
+		window.location.reload();
 	}
 }]);
