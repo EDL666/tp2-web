@@ -7,12 +7,12 @@ angular.module('fs3App')
       restrict: 'EA',
       scope: {
               omdbid: '=omdbid'
-        },
-      link: function (scope, element, attrs)
+            },
+        link: function (scope, element, attrs)
       {
         scope.$watch('omdbid', function(value)
         {
-          if(value !== undefined){
+          if(value !== undefined && localStorage.getItem('JWT') != undefined){
             $http({
             method: 'GET',
             url: 'https://crispesh.herokuapp.com/api/comments?movie_id='+value,
@@ -20,7 +20,10 @@ angular.module('fs3App')
             }).then(
             function successCallback(response)
             {
+				      console.log(response.data);
+              console.log(value);
               scope.comments = response.data;
+              scope.omdbid = value;
             },
             function errorCallback(response)
             {

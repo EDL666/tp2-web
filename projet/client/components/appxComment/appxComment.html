@@ -1,8 +1,15 @@
-<p>Comments
-<ul>
-  <li ng-repeat="comment in comments">
-            {{ comment.body }}
-  </li>
-</ul>
+<div ng-controller="AppxCommentCtrl" >
+	<p>Comments
+		<ul>
+		  <li ng-repeat="comment in comments">
+					{{ comment.body }}
+		  </li>
+		</ul>
+		<div ng-show="!!!comments.length">No comments found</div>
+		<div>
+			<textarea ng-model="commentText"></textarea>
+		</div>
+		<input ng-click="createComment(omdbid)" type="submit" class="btn btn-success" value="Ajouter un commentaire" />
 
-<div ng-show="!!!comments.length">No comments found</div>
+	</p>
+</div>
