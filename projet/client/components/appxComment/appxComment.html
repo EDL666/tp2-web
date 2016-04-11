@@ -3,6 +3,10 @@
 		<ul>
 		  <li ng-repeat="comment in comments">
 					{{ comment.body }}
+					{{comment.user.username}}
+					<div ng-show = "{{comment.user.username == userName}}">
+						<input ng-click="deleteComment(comment.id)" type="submit" class="btn btn-danger" value="Supprimer" />
+					</div>
 		  </li>
 		</ul>
 		<div ng-show="!!!comments.length">No comments found</div>
