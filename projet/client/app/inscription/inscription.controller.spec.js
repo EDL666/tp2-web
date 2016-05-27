@@ -6,6 +6,7 @@ describe('InscriptionCtrl test', function () {
   beforeEach(module('fs3App'));
 
   var InscriptionCtrl, scope, httpBackend;
+  var APP_API_URL = 'https://appxapi.herokuapp.com/api';
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
@@ -24,8 +25,8 @@ describe('InscriptionCtrl test', function () {
     scope.userFirstName = 'Eric';
     scope.userLastname = 'Rakotoseheno';
     scope.update();
-    httpBackend.when('POST', 'https://crispesh.herokuapp.com/api/register').respond(200);
-    httpBackend.expect('POST', 'https://crispesh.herokuapp.com/api/register');
+    httpBackend.when('POST', APP_API_URL +'/register').respond(200);
+    httpBackend.expect('POST', APP_API_URL + '/register');
     httpBackend.flush();
   });
 
@@ -36,8 +37,8 @@ describe('InscriptionCtrl test', function () {
     scope.userFirstName = 'Eric';
     scope.userLastname = 'Rakotoseheno';
     scope.update();
-    httpBackend.when('POST', 'https://crispesh.herokuapp.com/api/register').respond(410,response);
-    httpBackend.expect('POST', 'https://crispesh.herokuapp.com/api/register');
+    httpBackend.when('POST', APP_API_URL +'/register').respond(410,response);
+    httpBackend.expect('POST', APP_API_URL + '/register');
     console.log(scope.error);
     httpBackend.flush();
     expect(response).toEqual(scope.error.data);

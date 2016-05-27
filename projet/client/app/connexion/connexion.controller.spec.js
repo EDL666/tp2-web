@@ -6,6 +6,7 @@ describe('ConnexionCtrl test', function () {
   beforeEach(module('fs3App'));
 
   var ConnexionCtrl, scope, httpBackend;
+  var APP_API_URL = 'https://appxapi.herokuapp.com/api';
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
@@ -22,8 +23,8 @@ describe('ConnexionCtrl test', function () {
     user.username = 'eric@gmail.com';
     user.password = 'aaaa';
     scope.connexion(user);
-    httpBackend.when('POST', 'https://crispesh.herokuapp.com/api/login_check').respond(200);
-    httpBackend.expect('POST', 'https://crispesh.herokuapp.com/api/login_check');
+    httpBackend.when('POST', APP_API_URL + '/login_check').respond(200);
+    httpBackend.expect('POST', APP_API_URL + '/login_check');
     httpBackend.flush();
   });
 
@@ -34,8 +35,8 @@ describe('ConnexionCtrl test', function () {
     user.username = 'eric@gmail.com';
     user.password = 'aaaaaaaaa';
     scope.connexion(user);
-    httpBackend.when('POST', 'https://crispesh.herokuapp.com/api/login_check').respond(401,response);
-    httpBackend.expect('POST', 'https://crispesh.herokuapp.com/api/login_check');
+    httpBackend.when('POST', APP_API_URL + '/login_check').respond(401,response);
+    httpBackend.expect('POST', APP_API_URL + '/login_check');
     httpBackend.flush();
     expect(response).toEqual(scope.error.data);
   });

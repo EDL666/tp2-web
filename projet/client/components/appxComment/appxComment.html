@@ -1,12 +1,14 @@
 <div ng-controller="AppxCommentCtrl" >
 	<p>Comments
 		<ul>
-		  <li ng-repeat="comment in comments">
+		  <li ng-repeat="comment in comments" ng-model="comment.id">
 					{{ comment.body }}
 					{{comment.user.username}}
 					<div ng-show = "{{comment.user.username == userName}}">
 						<input ng-click="deleteComment(comment.id)" type="submit" class="btn btn-danger" value="Supprimer" />
+						<input ng-click="updateComment(comment.id,comment)" type="submit" class="btn btn-warning" value="Modifier" />
 					</div>
+					<textarea ng-show="showEdit" ng-model="updateText"></textarea>
 		  </li>
 		</ul>
 		<div ng-show="!!!comments.length">No comments found</div>
@@ -14,6 +16,5 @@
 			<textarea ng-model="commentText"></textarea>
 		</div>
 		<input ng-click="createComment(omdbid)" type="submit" class="btn btn-success" value="Ajouter un commentaire" />
-
 	</p>
 </div>

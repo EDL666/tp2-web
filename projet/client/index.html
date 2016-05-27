@@ -42,7 +42,7 @@
       ga('create', 'UA-XXXXX-X');
       ga('send', 'pageview');
     </script>
-
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -59,6 +59,7 @@
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
       <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+      <script src="bower_components/angular-socket-io/socket.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.tmp) app/app.js -->
@@ -78,8 +79,8 @@
       <script src="app/service/commentServices/commentServices.service.js"></script>
       <script src="app/connexion/connexion.controller.js"></script>
       <script src="app/service/postComment/postComment.service.js"></script>
-      <script src="app/service/postLogin/postLogin.service.js"></script>
-      <script src="app/service/postService/postService.service.js"></script>
+      <script src="app/service/postService/postInscriptionService.service.js"></script>
+      <script src="app/service/topTenService/topTenService.js"></script>
       <script src="components/appxComment/appxComment.controller.js"></script>
       <script src="components/appxComment/appxComment.directive.js"></script>
       <script src="components/footer/footer.directive.js"></script>

@@ -1,9 +1,9 @@
 'use strict';
 var app = angular.module('fs3App');
 
-app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope','toastr', function($scope,$http,$location,$rootScope,toastr) {
+app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope','toastr','APP_API_URL', function($scope,$http,$location,$rootScope,toastr, APP_API_URL) {
 	$scope.connexion = function(user){
-		var apiUrl = 'https://crispesh.herokuapp.com/api';
+		var apiUrl = APP_API_URL;
     $http(
       {
         method: 'POST',
@@ -28,7 +28,6 @@ app.controller('ConnexionCtrl', ['$scope', '$http','$location','$rootScope','toa
     		{
 					$scope.error = error;
 					toastr.error('Vos avez fait des erreurs lors de votre identification', 'Erreur');
-          console.log("Erreur de login", error);
         }
     );
 	};

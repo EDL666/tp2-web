@@ -3,15 +3,19 @@
     <h1>Bienvenue dans notre application</h1>
   </div>
 </header>
-
 <div ng-controller="InscriptionCtrl" class="container">
+  <ul ng-repeat="message in messages track by $index">
+    <li>{{message.body}}</li>
+  </ul>
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Film récents:</h1>
+      <h1 class="page-header">Les 10 films les mieux cotés:</h1>
       <ul>
-        <li class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="movie in movies | limitTo:6">
+        <li class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="movie in movies | limitTo:10">
           <a tooltip="{{movie.info}}">{{movie.Title}}</a>
           <img ng-src="{{movie.Poster}}" alt="" height="300" width="300"/>
+          </br>
+          <a tooltip="{{movie.info}}">Cote moyenne : {{movie.Rating}}</a>
           <div ng-show="showComment">
             <appx-comment omdbid="movie.imdbID"></appx-comment>
           <div >

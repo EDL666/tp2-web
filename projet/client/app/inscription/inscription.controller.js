@@ -2,7 +2,7 @@
 var app = angular.module('fs3App');
 
 app
-.controller('InscriptionCtrl', ['$scope','Post','toastr', function($scope,Post,toastr) {
+.controller('InscriptionCtrl', ['$scope','PostInscriptionService','toastr', function($scope,Post,toastr) {
 
   $scope.showForm = true;
   $scope.showSuccess = false;

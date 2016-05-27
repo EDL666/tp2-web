@@ -8,8 +8,16 @@ angular.module('fs3App', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'angular-jwt'
-])
+  'angular-jwt',
+  'btford.socket-io'
+]).constant('APP_API_URL', 'https://appxapi.herokuapp.com/api')
+.factory('mySocket', function (socketFactory) {
+  var myIoSocket = io.connect('http://atomracechat.herokuapp.com/');
+  var mySocket = socketFactory({
+    ioSocket: myIoSocket
+  });
+  return mySocket;
+})
   .config(function($urlRouterProvider, $locationProvider,$httpProvider, jwtInterceptorProvider) {
     $urlRouterProvider.otherwise('/');
     jwtInterceptorProvider.tokenGetter = function(config, jwtHelper) {
@@ -41,5 +49,5 @@ angular.module('fs3App', [
 
   $httpProvider.interceptors.push('jwtInterceptor');
 
-    $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
   });

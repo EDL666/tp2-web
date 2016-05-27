@@ -1,12 +1,14 @@
 'use strict';
 var app = angular.module('fs3App');
+var currentComment = 0;
 
-app.controller('AppxCommentCtrl', ['$scope', 'postComment', 'commentServices', function($scope,postComment, commentServices) {
+app.controller('AppxCommentCtrl', ['$scope', 'postComment', 'commentServices', 'APP_API_URL',function($scope,postComment, commentServices, APP_API_URL) {
 	$scope.connexion = function(user){
-		var apiUrl = 'https://crispesh.herokuapp.com/api';
+		var apiUrl = APP_API_URL;
 	};
 
 	$scope.userName = localStorage.getItem('Username');
+	$scope.showEdit = false;
 
 	$scope.createComment = function(omdbid) {
 		var aPost = {body: $scope.commentText, movie_id: omdbid, status: 0};
@@ -24,4 +26,10 @@ app.controller('AppxCommentCtrl', ['$scope', 'postComment', 'commentServices', f
 			}
 		}
 	};
+
+	$scope.updateComment = function(commentID,comment)
+	{
+		console.log(commentID);
+			$scope.showEdit = true;
+	}
 }]);

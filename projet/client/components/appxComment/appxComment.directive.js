@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('fs3App')
-  .directive('appxComment', function ($http) {
+  .directive('appxComment', function ($http, APP_API_URL) {
     return {
       templateUrl: 'components/appxComment/appxComment.html',
       restrict: 'EA',
@@ -15,19 +15,16 @@ angular.module('fs3App')
           if(value !== undefined && localStorage.getItem('JWT') != undefined){
             $http({
             method: 'GET',
-            url: 'https://crispesh.herokuapp.com/api/comments?movie_id='+value,
+            url: APP_API_URL + '/comments?movie_id=' + value,
             timeout: 5000,
             }).then(
             function successCallback(response)
             {
-				      console.log(response.data);
-              console.log(value);
               scope.comments = response.data;
               scope.omdbid = value;
             },
             function errorCallback(response)
             {
-              console.log('Error loading comments');
             });
           }
         });
